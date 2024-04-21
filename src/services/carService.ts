@@ -13,7 +13,8 @@ export const createCar = async (
   sale: number,
   description: string,
   carDetails: Array<string>,
-  img: Array<string>
+  img: Array<string>,
+  userId: string
 ): Promise<CarType> => {
   const createCar = await CarModel.create({
     carModel,
@@ -23,17 +24,18 @@ export const createCar = async (
     description,
     carDetails,
     img,
+    userId,
   });
   return createCar;
 };
 
 export const deleteCar = async (id: string) => {
-  const categories = await CarModel.deleteOne({ _id: id });
-  return categories;
+  const deleteThisCar = await CarModel.deleteOne({ _id: id });
+  return deleteThisCar;
 };
 
 export const editCarAuction = async (CarData: CarType) => {
-  const food = await CarModel.updateOne(
+  const editCar = await CarModel.updateOne(
     { _id: CarData.id },
     {
       carModel: CarData.carModel,
@@ -45,5 +47,5 @@ export const editCarAuction = async (CarData: CarType) => {
       img: CarData.img,
     }
   );
-  return food;
+  return editCar;
 };

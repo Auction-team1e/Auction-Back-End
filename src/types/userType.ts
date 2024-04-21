@@ -39,4 +39,5 @@ export type CarType = {
   description: String;
   carDetails: Array<String>;
   img: Array<String>;
+  userId: String;
 };

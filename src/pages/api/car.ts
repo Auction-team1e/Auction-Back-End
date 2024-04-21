@@ -29,7 +29,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           req.body.sale,
           req.body.description,
           req.body.carDetails,
-          req.body.img
+          req.body.img,
+          req.body.userId
         );
         res.status(200).json({ message: "Car succesfully created", car });
       } catch (e: any) {
