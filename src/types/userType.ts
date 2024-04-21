@@ -29,3 +29,14 @@ export type CarDetailsType = {
   color: { type: String; required: true };
   intColor: { type: String; required: true };
 };
+
+export type CarType = {
+  id: String;
+  carModel: String;
+  brand: String;
+  price: Number;
+  sale: Number;
+  description: String;
+  carDetails: Array<String>;
+  img: Array<String>;
+};
