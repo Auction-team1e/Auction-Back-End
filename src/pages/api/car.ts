@@ -26,7 +26,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           req.body.carModel,
           req.body.brand,
           req.body.price,
-          req.body.sale,
           req.body.description,
           req.body.carDetails,
           req.body.img,
