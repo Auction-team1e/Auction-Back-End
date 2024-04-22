@@ -1,6 +1,6 @@
 import { UserModel } from "@/models/user.schema";
 import { UserType } from "@/types/userType";
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
 export const createUser = async (
   firstName: string,
