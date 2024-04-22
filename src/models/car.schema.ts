@@ -3,7 +3,7 @@ import mongoose, { model, Schema } from "mongoose";
 const CarSchema = new Schema({
   carModel: String,
   brand: String,
-  price: Number,
+  startPrice: Number,
   description: String,
   carDetails: Array<String>,
   img: Array<String>,

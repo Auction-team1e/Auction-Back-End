@@ -8,8 +8,8 @@ export const getCars = async () => {
 
 export const createCar = async (
   carModel: string,
-  Brand: string,
-  price: number,
+  brand: string,
+  startPrice: number,
   description: string,
   carDetails: Array<string>,
   img: Array<string>,
@@ -17,8 +17,8 @@ export const createCar = async (
 ): Promise<CarType> => {
   const createCar = await CarModel.create({
     carModel,
-    Brand,
-    price,
+    brand,
+    startPrice,
     description,
     carDetails,
     img,

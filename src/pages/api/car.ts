@@ -20,12 +20,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }
+      break;
     case "POST":
       try {
         const car = await createCar(
           req.body.carModel,
           req.body.brand,
-          req.body.price,
+          req.body.startPrice,
           req.body.description,
           req.body.carDetails,
           req.body.img,
@@ -35,6 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }
+      break;
     case "DELETE":
       try {
         const deletedCar = await deleteCar(req.body.id);
@@ -44,6 +46,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }
+      break;
     case "PUT":
       try {
         const food = await editCarAuction(req.body);
@@ -53,6 +56,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }
+      break;
   }
 };
 
