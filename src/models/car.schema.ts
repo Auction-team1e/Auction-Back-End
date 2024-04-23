@@ -8,6 +8,8 @@ const CarSchema = new Schema({
   carDetails: Array<String>,
   img: Array<String>,
   userId: String,
+  endTime: Number,
+  createdAt: String,
 });
 
 export const CarModel = mongoose.models.Car || model("Car", CarSchema);

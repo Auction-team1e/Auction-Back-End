@@ -13,7 +13,9 @@ export const createCar = async (
   description: string,
   carDetails: Array<string>,
   img: Array<string>,
-  userId: string
+  userId: string,
+  endTime: number,
+  createdAt: string
 ): Promise<CarType> => {
   const createCar = await CarModel.create({
     carModel,
@@ -23,6 +25,8 @@ export const createCar = async (
     carDetails,
     img,
     userId,
+    endTime,
+    createdAt,
   });
   return createCar;
 };
