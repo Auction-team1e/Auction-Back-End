@@ -41,3 +41,9 @@ export type CarType = {
   img: Array<String>;
   userId: String;
 };
+
+export type BrandType = {
+  id: String;
+  brandTitle: String;
+  img: String;
+};
