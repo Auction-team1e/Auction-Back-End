@@ -14,7 +14,7 @@ export const createCar = async (
   carDetails: Array<string>,
   img: Array<string>,
   userId: string,
-  endTime: number,
+  endTime: string,
   createdAt: string
 ): Promise<CarType> => {
   const createCar = await CarModel.create({

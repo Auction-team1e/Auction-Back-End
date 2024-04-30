@@ -8,7 +8,7 @@ const CarSchema = new Schema({
   carDetails: Array<String>,
   img: Array<String>,
   userId: String,
-  endTime: Number,
+  endTime: String,
   createdAt: String,
 });
 
