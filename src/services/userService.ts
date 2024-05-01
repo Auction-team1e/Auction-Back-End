@@ -2,6 +2,11 @@ import { UserModel } from "@/models/user.schema";
 import { UserType } from "@/types/userType";
 const jwt = require("jsonwebtoken");
 
+export const getUsers = async () => {
+  const users = await UserModel.find();
+  return users;
+};
+
 export const createUser = async (
   firstName: string,
   lastName: string,

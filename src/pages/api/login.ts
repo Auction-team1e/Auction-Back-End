@@ -6,6 +6,7 @@ import { corsAllow } from "@/helper/cors";
 type Data = {
   message?: string;
   token?: string;
+  userEmail?: string;
 };
 
 export default async function handler(
@@ -24,7 +25,11 @@ export default async function handler(
     if (token) {
       return res
         .status(200)
-        .json({ token: token, message: "Login successful" });
+        .json({
+          token: token,
+          message: "Login successful",
+          userEmail: data.email,
+        });
     }
   } catch (e: any) {
     return res.status(400).json({ message: e.message });
