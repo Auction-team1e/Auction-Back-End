@@ -16,6 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     case "GET":
       try {
         const cars = await getCars();
+        console.log(cars);
         res.status(200).json(cars);
       } catch (e: any) {
         return res.status(400).json({ message: e.message });

@@ -1,9 +1,23 @@
 import { CarModel } from "@/models/car.schema";
 import { CarType } from "@/types/userType";
+import { promises } from "dns";
+import mongoose, { isObjectIdOrHexString, isValidObjectId } from "mongoose";
 
 export const getCars = async () => {
   const cars = await CarModel.find();
   return cars;
+};
+
+export const findCar = async (_id: string) => {
+  try {
+    const findThisCar = await CarModel.findOne({
+      _id: new mongoose.Types.ObjectId(_id),
+    });
+    console.log("find", findThisCar);
+    return findThisCar;
+  } catch (error: any) {
+    return error.message("error failed");
+  }
 };
 
 export const createCar = async (
