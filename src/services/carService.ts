@@ -13,8 +13,20 @@ export const findCar = async (_id: string) => {
     const findThisCar = await CarModel.findOne({
       _id: new mongoose.Types.ObjectId(_id),
     });
-    console.log("find", findThisCar);
+    // console.log("find", findThisCar);
     return findThisCar;
+  } catch (error: any) {
+    return error.message("error failed");
+  }
+};
+
+export const filteredByBrand = async (brandTitle: string) => {
+  try {
+    const findByBrand = await CarModel.aggregate([
+      { $match: { brand: brandTitle } },
+    ]);
+    console.log(findByBrand);
+    return findByBrand;
   } catch (error: any) {
     return error.message("error failed");
   }
