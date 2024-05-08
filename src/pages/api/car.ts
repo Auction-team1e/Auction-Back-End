@@ -51,10 +51,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       break;
     case "PUT":
       try {
-        const food = await editCarAuction(req.body);
+        const editCar = await editCarAuction(req.body);
         res
           .status(200)
-          .json({ message: "Car Auction succesfully updated", food });
+          .json({ message: "Car Auction succesfully updated", editCar });
+        console.log("Car Auction succesfully updated");
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }

@@ -63,12 +63,13 @@ export const deleteCar = async (id: string) => {
 };
 
 export const editCarAuction = async (CarData: CarType) => {
+  console.log("🚀 ~ editCarAuction ~ CarData:", CarData);
   const editCar = await CarModel.updateOne(
     { _id: CarData.id },
     {
       carModel: CarData.carModel,
       brand: CarData.brand,
-      price: CarData.price,
+      startPrice: CarData.startPrice,
       sale: CarData.sale,
       description: CarData.description,
       carDetails: CarData.carDetails,

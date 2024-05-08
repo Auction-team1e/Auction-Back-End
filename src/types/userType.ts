@@ -31,15 +31,15 @@ export type CarDetailsType = {
 };
 
 export type CarType = {
-  id: String;
-  carModel: String;
-  brand: String;
-  price: Number;
-  sale: Number;
-  description: String;
-  carDetails: Array<String>;
-  img: Array<String>;
-  userId: String;
+  id?: String;
+  carModel?: String;
+  brand?: String;
+  startPrice?: Number;
+  sale?: Number;
+  description?: String;
+  carDetails?: Array<String>;
+  img?: Array<String>;
+  userId?: String;
 };
 
 export type BrandType = {
