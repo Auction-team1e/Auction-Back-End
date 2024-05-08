@@ -79,3 +79,18 @@ export const editCarAuction = async (CarData: CarType) => {
   );
   return editCar;
 };
+
+export const addBidContestantToAuction = async (CarData: CarType) => {
+  const editCar = await CarModel.updateOne(
+    { _id: CarData.id },
+    {
+      $push: {
+        bidContestants: {
+          userEmail: CarData.email,
+          bidPrice: CarData.startPrice,
+        },
+      },
+    }
+  );
+  return editCar;
+};

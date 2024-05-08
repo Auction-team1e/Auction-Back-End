@@ -1,6 +1,7 @@
 import { corsAllow } from "@/helper/cors";
 import connect from "@/helper/db";
 import {
+  addBidContestantToAuction,
   createCar,
   deleteCar,
   editCarAuction,
@@ -52,10 +53,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       break;
     case "PUT":
       try {
-        const editCar = await editCarAuction(req.body);
-        res
-          .status(200)
-          .json({ message: "Car Auction succesfully updated", editCar });
+        await editCarAuction(req.body);
+        await addBidContestantToAuction(req.body);
+        res.status(200).json({ message: "Car Auction succesfully updated" });
         console.log("Car Auction succesfully updated");
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
