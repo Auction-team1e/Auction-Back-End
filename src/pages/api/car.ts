@@ -32,7 +32,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           req.body.img,
           req.body.userId,
           req.body.endTime,
-          req.body.createdAt
+          req.body.createdAt,
+          req.body.bidContestants
         );
         res.status(200).json({ message: "Car succesfully created", car });
       } catch (e: any) {

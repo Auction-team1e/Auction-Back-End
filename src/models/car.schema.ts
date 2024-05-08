@@ -10,6 +10,7 @@ const CarSchema = new Schema({
   userId: String,
   endTime: String,
   createdAt: String,
+  bidContestants: Array<{}>,
 });
 
 export const CarModel = mongoose.models.Car || model("Car", CarSchema);

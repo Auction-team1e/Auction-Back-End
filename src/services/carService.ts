@@ -41,7 +41,8 @@ export const createCar = async (
   img: Array<string>,
   userId: string,
   endTime: string,
-  createdAt: string
+  createdAt: string,
+  bidContestants: Array<{}>
 ): Promise<CarType> => {
   const createCar = await CarModel.create({
     carModel,
@@ -53,6 +54,7 @@ export const createCar = async (
     userId,
     endTime,
     createdAt,
+    bidContestants,
   });
   return createCar;
 };
@@ -63,7 +65,6 @@ export const deleteCar = async (id: string) => {
 };
 
 export const editCarAuction = async (CarData: CarType) => {
-  console.log("🚀 ~ editCarAuction ~ CarData:", CarData);
   const editCar = await CarModel.updateOne(
     { _id: CarData.id },
     {
