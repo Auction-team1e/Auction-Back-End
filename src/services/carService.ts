@@ -1,7 +1,6 @@
 import { CarModel } from "@/models/car.schema";
 import { CarType } from "@/types/userType";
-import { promises } from "dns";
-import mongoose, { isObjectIdOrHexString, isValidObjectId } from "mongoose";
+import mongoose from "mongoose";
 
 export const getCars = async () => {
   const cars = await CarModel.find();
@@ -13,7 +12,6 @@ export const findCar = async (_id: string) => {
     const findThisCar = await CarModel.findOne({
       _id: new mongoose.Types.ObjectId(_id),
     });
-    // console.log("find", findThisCar);
     return findThisCar;
   } catch (error: any) {
     return error.message("error failed");
@@ -88,6 +86,7 @@ export const addBidContestantToAuction = async (CarData: CarType) => {
         bidContestants: {
           userEmail: CarData.email,
           bidPrice: CarData.startPrice,
+          bidCreatedAt: CarData.bidCreatedAt,
         },
       },
     }

@@ -31,8 +31,9 @@ export type CarDetailsType = {
 };
 
 export type CarType = {
-  email: any;
-  bidPrice: any;
+  bidCreatedAt?: String;
+  email: String;
+  bidPrice: String;
   id?: String;
   carModel?: String;
   brand?: String;
