@@ -47,6 +47,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         res
           .status(200)
           .json({ message: "Car succesfully deleted", deletedCar });
+        console.log("car succesfully deleted");
       } catch (e: any) {
         return res.status(400).json({ message: e.message });
       }

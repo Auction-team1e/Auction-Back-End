@@ -44,6 +44,8 @@ export type CarType = {
   img?: Array<String>;
   userId?: String;
   bidContestants?: String;
+  endTime?: string;
+  createdAt?: string;
 };
 
 export type BrandType = {
