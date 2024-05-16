@@ -18,12 +18,16 @@ export const findCar = async (_id: string) => {
   }
 };
 
+export const findCarById = async (id: string) => {
+  const findThisCar = await CarModel.findOne({ _id: id });
+  return findThisCar;
+};
+
 export const filteredByBrand = async (brandTitle: string) => {
   try {
     const findByBrand = await CarModel.aggregate([
       { $match: { brand: brandTitle } },
     ]);
-    console.log(findByBrand);
     return findByBrand;
   } catch (error: any) {
     return error.message("error failed");
@@ -63,7 +67,6 @@ export const deleteCar = async (id: string) => {
 };
 
 export const editCarAuction = async (CarData: CarType) => {
-  console.log(CarData);
   const editCar = await CarModel.updateOne(
     { _id: CarData.id },
     {
