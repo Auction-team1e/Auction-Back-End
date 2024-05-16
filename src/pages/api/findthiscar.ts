@@ -5,7 +5,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await connect();
-  await corsAllow(req, res);
   const data = req.query;
   try {
     const foundCar = await findCar(data?.slug as string);
