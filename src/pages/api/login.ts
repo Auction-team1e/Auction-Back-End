@@ -14,6 +14,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   await connect();
+  await corsAllow(req, res);
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }

@@ -10,6 +10,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await connect();
+  await corsAllow(req, res);
   const data = req.body;
   console.log(data);
   switch (req.method) {
