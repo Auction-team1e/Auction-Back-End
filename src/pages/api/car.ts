@@ -11,7 +11,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await connect();
-  await corsAllow(req, res);
+  if (await corsAllow(req, res)) {
+    return;
+  }
 
   switch (req.method) {
     case "GET":
